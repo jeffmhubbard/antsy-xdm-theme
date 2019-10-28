@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Extra X settings
+xsetroot -solid grey20 -cursor_name left_ptr &
+
+# Random wallpaper
+wall_dir="/etc/X11/xdm/antsy/backgrounds"
+[ -d "$wall_dir" ] || wall_dir="/usr/share/backgrounds"
+feh --bg-fill --randomize -r "$wall_dir"
+
+# Shadows and transparency
+compton --config /etc/X11/xdm/antsy/compton.conf &
+echo $! >/var/run/xdm-compton.pid
+
+# Custom polybar with clock and shudown\reboot menu
+polybar -c /etc/X11/xdm/antsy/polybar.ini xdm-base &
+echo $! >/var/run/xdm-polybar.pid
+
+# vim: set ft=sh:
