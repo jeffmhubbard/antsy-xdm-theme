@@ -9,8 +9,8 @@ wall_dir="/etc/X11/xdm/antsy/backgrounds"
 feh --bg-fill --randomize -r "$wall_dir"
 
 # Shadows and transparency
-compton --config /etc/X11/xdm/antsy/compton.conf &
-echo $! >/var/run/xdm-compton.pid
+picom --config /etc/X11/xdm/antsy/picom.conf &
+echo $! >/var/run/xdm-picom.pid
 
 # Custom polybar with clock and shudown\reboot menu
 polybar -c /etc/X11/xdm/antsy/polybar.ini xdm-base &
