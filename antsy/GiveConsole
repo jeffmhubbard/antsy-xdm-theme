@@ -6,8 +6,8 @@
 # the console output.  This way a random user can invoke xterm -C without
 # causing serious grief.
 #
-# stop compton and polybar
-cat /var/run/xdm-compton.pid | xargs kill -9
+# stop picom and polybar
+cat /var/run/xdm-picom.pid | xargs kill -9
 cat /var/run/xdm-polybar.pid | xargs kill -9
 
 chown $USER /dev/console
